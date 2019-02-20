@@ -4,7 +4,7 @@
 
 source "https://rubygems.org"
 
-gem 'fastlane', '2.63.0'
+gem 'fastlane', '2.111.0'
 gem 'cocoapods'
 
 plugins_path = File.join(File.dirname(__FILE__), 'fastlane', 'Pluginfile')

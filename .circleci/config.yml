@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     environment:
-      - XCODE_SCHEME: 'bao-2018-ninjiaFighting111'
+      - XCODE_SCHEME: 'sideProject-ninjia'
       - SLACK_CHANNEL: '#bao'
       - BUNDLE_JOBS: 4
       - BUNDLE_RETRY: 3

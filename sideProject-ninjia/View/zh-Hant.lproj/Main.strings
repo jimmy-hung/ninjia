@@ -1,0 +1,90 @@
+
+/* Class = "UIButton"; normalTitle = "功能"; ObjectID = "2L5-JT-hMB"; */
+"2L5-JT-hMB.normalTitle" = "功能";
+
+/* Class = "UILabel"; text = "怎麼玩"; ObjectID = "6pJ-Dh-VRz"; */
+"6pJ-Dh-VRz.text" = "怎麼玩";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "76P-io-FkC"; */
+"76P-io-FkC.text" = "2";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "AJ8-EB-pUF"; */
+"AJ8-EB-pUF.text" = "3";
+
+/* Class = "UILabel"; text = "Backgroung Music"; ObjectID = "Cxc-Ck-dPl"; */
+"Cxc-Ck-dPl.text" = "Backgroung Music";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "HZ8-cx-1fk"; */
+"HZ8-cx-1fk.text" = "1";
+
+/* Class = "UIButton"; normalTitle = "怎麼玩"; ObjectID = "OTE-wx-ED9"; */
+"OTE-wx-ED9.normalTitle" = "怎麼玩";
+
+/* Class = "UILabel"; text = "排行榜"; ObjectID = "Qtw-tn-egv"; */
+"Qtw-tn-egv.text" = "排行榜";
+
+/* Class = "UILabel"; text = "Sound Effect"; ObjectID = "QzM-6o-woi"; */
+"QzM-6o-woi.text" = "Sound Effect";
+
+/* Class = "UILabel"; text = "ON"; ObjectID = "R2f-pr-9kB"; */
+"R2f-pr-9kB.text" = "ON";
+
+/* Class = "UILabel"; text = "武器型態"; ObjectID = "Tkc-LU-eRO"; */
+"Tkc-LU-eRO.text" = "武器型態";
+
+/* Class = "UILabel"; text = "Function"; ObjectID = "UZv-ak-d6y"; */
+"UZv-ak-d6y.text" = "Function";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "VzJ-Ek-Fvh"; */
+"VzJ-Ek-Fvh.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "XGK-Nt-zvP"; */
+"XGK-Nt-zvP.text" = "Title";
+
+/* Class = "UILabel"; text = "攻擊速度"; ObjectID = "XXh-8D-aqn"; */
+"XXh-8D-aqn.text" = "攻擊速度";
+
+/* Class = "UIButton"; normalTitle = "排行"; ObjectID = "XdS-yS-cCB"; */
+"XdS-yS-cCB.normalTitle" = "排行";
+
+/* Class = "UILabel"; text = "6 / s"; ObjectID = "bIa-8v-A27"; */
+"bIa-8v-A27.text" = "6 / s";
+
+/* Class = "UILabel"; text = "角色進化"; ObjectID = "cPg-dS-Tiy"; */
+"cPg-dS-Tiy.text" = "角色進化";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cyd-ex-ghR"; */
+"cyd-ex-ghR.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "12 / s"; ObjectID = "eHf-Uf-sXF"; */
+"eHf-Uf-sXF.text" = "12 / s";
+
+/* Class = "UILabel"; text = "ON"; ObjectID = "fmm-ul-8i4"; */
+"fmm-ul-8i4.text" = "ON";
+
+/* Class = "UIButton"; normalTitle = "模式"; ObjectID = "h0X-TT-fKW"; */
+"h0X-TT-fKW.normalTitle" = "模式";
+
+/* Class = "UILabel"; text = "Play ： 左右移動角色人物，點擊螢幕攻擊  全部解鎖，即觸發隱藏功能"; ObjectID = "hyS-Py-Wmb"; */
+"hyS-Py-Wmb.text" = "Play ： 左右移動角色人物，點擊螢幕攻擊  全部解鎖，即觸發隱藏功能";
+
+/* Class = "UILabel"; text = "OFF"; ObjectID = "isY-l8-DPB"; */
+"isY-l8-DPB.text" = "OFF";
+
+/* Class = "UILabel"; text = "OFF"; ObjectID = "okL-YV-WwN"; */
+"okL-YV-WwN.text" = "OFF";
+
+/* Class = "UILabel"; text = "Background Music Selection"; ObjectID = "ruf-gt-iQm"; */
+"ruf-gt-iQm.text" = "Background Music Selection";
+
+/* Class = "UILabel"; text = "左右移動角色，蒐集落在天空中的星星，直到星星上的數字被完全消除，你可以得到分數和分數，分數可以解鎖到下一個等級，角色射擊中的星星將降到 比賽結束。 快來試試吧！！"; ObjectID = "sqU-j6-WXm"; */
+"sqU-j6-WXm.text" = "左右移動角色，蒐集落在天空中的星星，直到星星上的數字被完全消除，你可以得到分數和分數，分數可以解鎖到下一個等級，角色射擊中的星星將降到 比賽結束。 快來試試吧！！";
+
+/* Class = "UILabel"; text = "模式"; ObjectID = "vT7-09-DTr"; */
+"vT7-09-DTr.text" = "模式";
+
+/* Class = "UILabel"; text = "24 / s"; ObjectID = "vnH-IR-BcK"; */
+"vnH-IR-BcK.text" = "24 / s";
+
+/* Class = "UIButton"; normalTitle = "開始"; ObjectID = "xBy-xd-XUu"; */
+"xBy-xd-XUu.normalTitle" = "開始";
