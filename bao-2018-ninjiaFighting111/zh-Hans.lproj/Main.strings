@@ -1,0 +1,99 @@
+
+/* Class = "UIButton"; normalTitle = "Function"; ObjectID = "2L5-JT-hMB"; */
+"2L5-JT-hMB.normalTitle" = "Function";
+
+/* Class = "UILabel"; text = "JIMMY"; ObjectID = "31J-JU-cY1"; */
+"31J-JU-cY1.text" = "JIMMY";
+
+/* Class = "UILabel"; text = "How to play"; ObjectID = "6pJ-Dh-VRz"; */
+"6pJ-Dh-VRz.text" = "How to play";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "76P-io-FkC"; */
+"76P-io-FkC.text" = "2";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "AJ8-EB-pUF"; */
+"AJ8-EB-pUF.text" = "3";
+
+/* Class = "UILabel"; text = "Backgroung Music"; ObjectID = "Cxc-Ck-dPl"; */
+"Cxc-Ck-dPl.text" = "Backgroung Music";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "HZ8-cx-1fk"; */
+"HZ8-cx-1fk.text" = "1";
+
+/* Class = "UIButton"; normalTitle = "HowToPlay"; ObjectID = "OTE-wx-ED9"; */
+"OTE-wx-ED9.normalTitle" = "HowToPlay";
+
+/* Class = "UILabel"; text = "Ranknig"; ObjectID = "Qtw-tn-egv"; */
+"Qtw-tn-egv.text" = "Ranknig";
+
+/* Class = "UILabel"; text = "Sound Effect"; ObjectID = "QzM-6o-woi"; */
+"QzM-6o-woi.text" = "Sound Effect";
+
+/* Class = "UILabel"; text = "ON"; ObjectID = "R2f-pr-9kB"; */
+"R2f-pr-9kB.text" = "ON";
+
+/* Class = "UILabel"; text = "Weapon type"; ObjectID = "Tkc-LU-eRO"; */
+"Tkc-LU-eRO.text" = "Weapon type";
+
+/* Class = "UILabel"; text = "Function"; ObjectID = "UZv-ak-d6y"; */
+"UZv-ak-d6y.text" = "Function";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "VzJ-Ek-Fvh"; */
+"VzJ-Ek-Fvh.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "XGK-Nt-zvP"; */
+"XGK-Nt-zvP.text" = "Title";
+
+/* Class = "UILabel"; text = "Attack  speed"; ObjectID = "XXh-8D-aqn"; */
+"XXh-8D-aqn.text" = "Attack  speed";
+
+/* Class = "UIButton"; normalTitle = "Ranking"; ObjectID = "XdS-yS-cCB"; */
+"XdS-yS-cCB.normalTitle" = "Ranking";
+
+/* Class = "UIButton"; normalTitle = "Go"; ObjectID = "Yxw-aB-zhf"; */
+"Yxw-aB-zhf.normalTitle" = "Go";
+
+/* Class = "UILabel"; text = "6 / s"; ObjectID = "bIa-8v-A27"; */
+"bIa-8v-A27.text" = "6 / s";
+
+/* Class = "UILabel"; text = "Character choice"; ObjectID = "cPg-dS-Tiy"; */
+"cPg-dS-Tiy.text" = "Character choice";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cyd-ex-ghR"; */
+"cyd-ex-ghR.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "12 / s"; ObjectID = "eHf-Uf-sXF"; */
+"eHf-Uf-sXF.text" = "12 / s";
+
+/* Class = "UILabel"; text = "ON"; ObjectID = "fmm-ul-8i4"; */
+"fmm-ul-8i4.text" = "ON";
+
+/* Class = "UIButton"; normalTitle = "Mode"; ObjectID = "h0X-TT-fKW"; */
+"h0X-TT-fKW.normalTitle" = "Mode";
+
+/* Class = "UILabel"; text = "Play ： Slide the character to move left and right, click to launch"; ObjectID = "hyS-Py-Wmb"; */
+"hyS-Py-Wmb.text" = "Play ： Slide the character to move left and right, click to launch";
+
+/* Class = "UILabel"; text = "OFF"; ObjectID = "isY-l8-DPB"; */
+"isY-l8-DPB.text" = "OFF";
+
+/* Class = "UILabel"; text = "Are you ready?"; ObjectID = "o9D-7x-RIN"; */
+"o9D-7x-RIN.text" = "Are you ready?";
+
+/* Class = "UILabel"; text = "OFF"; ObjectID = "okL-YV-WwN"; */
+"okL-YV-WwN.text" = "OFF";
+
+/* Class = "UILabel"; text = "Background Music Selection"; ObjectID = "ruf-gt-iQm"; */
+"ruf-gt-iQm.text" = "Background Music Selection";
+
+/* Class = "UILabel"; text = "Move the characters left and right, shoot the stars falling in the sky until the numbers on the stars are completely eliminated, you can get the scores and points, the points can unlock the next level, and the stars in the character shooting will fall to the end of the game. Come and try it! !"; ObjectID = "sqU-j6-WXm"; */
+"sqU-j6-WXm.text" = "Move the characters left and right, shoot the stars falling in the sky until the numbers on the stars are completely eliminated, you can get the scores and points, the points can unlock the next level, and the stars in the character shooting will fall to the end of the game. Come and try it! !";
+
+/* Class = "UILabel"; text = "Mode"; ObjectID = "vT7-09-DTr"; */
+"vT7-09-DTr.text" = "Mode";
+
+/* Class = "UILabel"; text = "24 / s"; ObjectID = "vnH-IR-BcK"; */
+"vnH-IR-BcK.text" = "24 / s";
+
+/* Class = "UIButton"; normalTitle = "START"; ObjectID = "xBy-xd-XUu"; */
+"xBy-xd-XUu.normalTitle" = "START";

@@ -1,0 +1,2 @@
+Control the ninja to run around, click on the screen, issue a shuriken, and attack the bat flying in the sky.
+Be careful not to be touched by bats, they are deadly, and when the bat is touched, the game is over.

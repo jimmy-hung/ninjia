@@ -1,0 +1,60 @@
+version: 2
+jobs:
+  build:
+    environment:
+      - XCODE_SCHEME: 'bao-2018-ninjiaFighting111'
+      - SLACK_CHANNEL: '#bao'
+      - BUNDLE_JOBS: 4
+      - BUNDLE_RETRY: 3
+      - BUNDLE_PATH: vendor/bundle
+      - LC_ALL: en_US.UTF-8
+      - LANG: en_US.UTF-8
+      - TERM: xterm
+    macos:
+      xcode: "9.3.0"
+    shell: /bin/bash --login -eo pipefail
+    steps:
+      - checkout
+      - run:
+          name: Set Git Credentials
+          command: |
+            git config --global --remove-section url."ssh://git@bitbucket.org"
+            git config --global credential.helper store
+            echo "https://larvata_taiwan:${GIT_PASS}@bitbucket.org" > ~/.git-credentials
+      - run:
+          name: Set Ruby Version
+          command: echo "ruby-2.4" > ~/.ruby-version
+      - restore_cache:
+          keys:
+            - v1-gems-{{ checksum "Gemfile.lock" }}
+            - v1-gems-
+      - run:
+          name: Bundle install
+          command: bundle check || bundle install
+      - save_cache:
+          key: v1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - restore_cache:
+          keys:
+            - v1-pods-{{ checksum "Podfile.lock" }}
+      - run:
+          name: Install CocoaPods
+          command: |
+            if [ ! -d "Pods" ]; then
+              curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+              bundle exec pod install
+            fi
+      - save_cache:
+          key: v1-pods-{{ checksum "Podfile.lock" }}
+          paths:
+            - Pods
+      - run:
+          name: Deploy by fastlane
+          command: |
+            if [ "${CIRCLE_BRANCH}" = "master" ]; then
+              bundle exec fastlane ios release --verbose
+            else
+              bundle exec fastlane ios beta_firim --verbose
+            fi
+
