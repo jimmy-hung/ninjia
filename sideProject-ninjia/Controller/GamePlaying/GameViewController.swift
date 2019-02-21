@@ -38,8 +38,8 @@ class GameViewController: UIViewController{
             
             view.ignoresSiblingOrder = true
             
-            view.showsFPS = true
-            view.showsNodeCount = true
+            view.showsFPS = false       // 不顯示遊戲fps
+            view.showsNodeCount = false // 不顯示出節點數
             
             // Game Notification
             let notificationName = Notification.Name("GameOver")
@@ -53,14 +53,15 @@ class GameViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool){
         // insert xib
-        if let finalResult = Bundle.main.loadNibNamed("final", owner: self, options: nil)?.first as? final
-        {
+        if let finalResult = Bundle.main.loadNibNamed("final", owner: self, options: nil)?.first as? final{
+            
             final.frame.size.width = view.frame.size.width * 0.8
             final.frame.size.height = view.frame.size.height * 0.6
             final.frame.origin.x = self.view.frame.size.width * 0.2 / 2
             final.frame.origin.y = self.view.frame.size.height * 0.4 / 2
             
-            gotCorner(myCorner: final, radius: 30)
+            final.gotCorner(radius: 30)
+//            gotCorner(myCorner: final, radius: 30)
             self.view.addSubview(final)
             finalResult.isHidden = true
         }
@@ -96,10 +97,10 @@ class GameViewController: UIViewController{
         return true
     }
     
-    func gotCorner(myCorner:UIView, radius:CGFloat){
-        myCorner.layer.cornerRadius = radius
-        myCorner.clipsToBounds = true
-    }
+//    func gotCorner(myCorner:UIView, radius:CGFloat){
+//        myCorner.layer.cornerRadius = radius
+//        myCorner.clipsToBounds = true
+//    }
     
     @IBAction func boomAtn (){
         resultBoom.pulsate(sender: resultBoom, repeatIs: 4)

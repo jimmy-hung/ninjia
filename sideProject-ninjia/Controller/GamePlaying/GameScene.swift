@@ -54,10 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     let motionManger = CMMotionManager()
     var xAcceleration:CGFloat = 0
     
-    override func didMove(to view: SKView) {
-        
-        view.showsFPS = false       // 不顯示遊戲fps
-        view.showsNodeCount = false // 不顯示出節點數
+    override func didMove(to view: SKView) { 
         
         scoreLb = SKLabelNode(text: "0")
         scoreLb.position = CGPoint(x:-100, y: self.frame.size.height/2 - 70)

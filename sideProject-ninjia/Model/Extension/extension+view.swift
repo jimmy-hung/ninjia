@@ -27,4 +27,9 @@ extension UIView{
         self.addMotionEffect(group)
     }
     
+    func gotCorner(radius:CGFloat){
+        self.layer.cornerRadius = radius
+        self.clipsToBounds = true
+    }
+    
 }

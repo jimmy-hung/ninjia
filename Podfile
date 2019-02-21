@@ -7,7 +7,7 @@ target 'sideProject-ninjia' do
 
   # Pods for bao-2018-ninjiaFighting111
 
-# pod 'Fabric'
-# pod 'Crashlytics'
+ pod 'Fabric'
+ pod 'Crashlytics'
 
 end

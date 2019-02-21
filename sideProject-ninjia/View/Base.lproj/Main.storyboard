@@ -22,13 +22,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oNU-XI-PLM" userLabel="Horizontal">
-                                <rect key="frame" x="19" y="367" width="337.5" height="133.5"/>
+                                <rect key="frame" x="19" y="373.5" width="337.5" height="120"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yTq-XZ-sWn" userLabel="Vertical_btn_one">
-                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="133.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="120"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTE-wx-ED9">
-                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="51.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="45"/>
                                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
                                                 <state key="normal" title="怎麼玩" backgroundImage="btn_green">
                                                     <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,7 +39,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2L5-JT-hMB">
-                                                <rect key="frame" x="0.0" y="81.5" width="158.5" height="52"/>
+                                                <rect key="frame" x="0.0" y="75" width="158.5" height="45"/>
                                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
                                                 <state key="normal" title="功能" backgroundImage="btn_green">
                                                     <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -52,10 +52,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="HsA-Zh-MAC" userLabel="Vertical_btn_two">
-                                        <rect key="frame" x="178.5" y="0.0" width="159" height="133.5"/>
+                                        <rect key="frame" x="178.5" y="0.0" width="159" height="120"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0X-TT-fKW">
-                                                <rect key="frame" x="0.0" y="0.0" width="159" height="51.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="159" height="45"/>
                                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
                                                 <state key="normal" title="模式" backgroundImage="btn_green">
                                                     <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,7 +66,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XdS-yS-cCB">
-                                                <rect key="frame" x="0.0" y="81.5" width="159" height="52"/>
+                                                <rect key="frame" x="0.0" y="75" width="159" height="45"/>
                                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
                                                 <state key="normal" title="排行" backgroundImage="btn_green">
                                                     <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,7 +81,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBy-xd-XUu">
-                                <rect key="frame" x="112.5" y="273.5" width="150" height="53.5"/>
+                                <rect key="frame" x="112.5" y="277" width="150" height="46.5"/>
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
                                 <state key="normal" title="開始" backgroundImage="btn_red">
                                     <color key="titleColor" red="0.96370576230000005" green="1" blue="0.84455919509999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -120,10 +120,10 @@
                             <constraint firstItem="lp7-QO-ijC" firstAttribute="width" secondItem="O6W-Dk-G4k" secondAttribute="width" multiplier="0.12" id="Zr2-Ko-tXZ"/>
                             <constraint firstItem="O6W-Dk-G4k" firstAttribute="top" secondItem="Imt-TF-D4D" secondAttribute="top" id="ex2-5e-5k7"/>
                             <constraint firstItem="zh5-lY-Qdg" firstAttribute="height" secondItem="lp7-QO-ijC" secondAttribute="height" id="gaJ-Nb-7kA"/>
-                            <constraint firstItem="xBy-xd-XUu" firstAttribute="height" secondItem="O6W-Dk-G4k" secondAttribute="height" multiplier="0.08" id="h8v-BG-nJj"/>
+                            <constraint firstItem="xBy-xd-XUu" firstAttribute="height" secondItem="O6W-Dk-G4k" secondAttribute="height" multiplier="0.07" id="h8v-BG-nJj"/>
                             <constraint firstItem="xBy-xd-XUu" firstAttribute="width" secondItem="O6W-Dk-G4k" secondAttribute="width" multiplier="0.4" id="hNm-L7-mFd"/>
                             <constraint firstItem="oNU-XI-PLM" firstAttribute="centerX" secondItem="Imt-TF-D4D" secondAttribute="centerX" id="hiR-gZ-0cO"/>
-                            <constraint firstItem="oNU-XI-PLM" firstAttribute="height" secondItem="Imt-TF-D4D" secondAttribute="height" multiplier="0.2" id="o3C-Eq-7NG"/>
+                            <constraint firstItem="oNU-XI-PLM" firstAttribute="height" secondItem="Imt-TF-D4D" secondAttribute="height" multiplier="0.18" id="o3C-Eq-7NG"/>
                             <constraint firstItem="zh5-lY-Qdg" firstAttribute="width" secondItem="lp7-QO-ijC" secondAttribute="width" id="oVR-4m-I35"/>
                             <constraint firstItem="O6W-Dk-G4k" firstAttribute="leading" secondItem="D5L-iH-1aE" secondAttribute="leading" id="s7h-2E-Ijs"/>
                             <constraint firstItem="lp7-QO-ijC" firstAttribute="centerX" secondItem="Imt-TF-D4D" secondAttribute="centerX" multiplier="0.2" id="vsZ-LH-J9u"/>
