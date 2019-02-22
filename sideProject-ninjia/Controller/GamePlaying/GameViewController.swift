@@ -47,7 +47,6 @@ class GameViewController: UIViewController{
             
             let notificationScore = Notification.Name("refreshScore")
             NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.gotScore), name: notificationScore, object: nil)
-            
         }
     }
     
@@ -61,7 +60,6 @@ class GameViewController: UIViewController{
             final.frame.origin.y = self.view.frame.size.height * 0.4 / 2
             
             final.gotCorner(radius: 30)
-//            gotCorner(myCorner: final, radius: 30)
             self.view.addSubview(final)
             finalResult.isHidden = true
         }
@@ -97,11 +95,6 @@ class GameViewController: UIViewController{
         return true
     }
     
-//    func gotCorner(myCorner:UIView, radius:CGFloat){
-//        myCorner.layer.cornerRadius = radius
-//        myCorner.clipsToBounds = true
-//    }
-    
     @IBAction func boomAtn (){
         resultBoom.pulsate(sender: resultBoom, repeatIs: 4)
     }
@@ -113,5 +106,6 @@ class GameViewController: UIViewController{
     @IBAction func backAtn (){
         dismiss(animated: true, completion: nil)
     }
-    
 }
+
+

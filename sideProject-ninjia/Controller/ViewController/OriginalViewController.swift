@@ -1,6 +1,8 @@
 
 
 import UIKit
+import GoogleMobileAds
+
 
 class OriginalViewController: UIViewController{
     
@@ -20,6 +22,8 @@ class OriginalViewController: UIViewController{
     @IBOutlet weak var rankBtn: UIButton!
     
     let soundManger = SoundManager.shared
+    
+    var interstitial: GADInterstitial?
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -56,7 +60,32 @@ class OriginalViewController: UIViewController{
             soundManger.bgmOnOrClose(state: .close)
         }
         
+        interstitial = createInterstitial()
+
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if interstitial!.isReady{
+            interstitial!.present(fromRootViewController: self)
+        }else{
+            print("Ad wasn't ready")
+        }
+    }
+    
+    func createInterstitial() -> GADInterstitial{
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-6580741437448841/5883859607")
+        let request = GADRequest()
+        //request.testDevices = [ kGADSimulatorID ]
+        interstitial!.load(request)
+        interstitial!.delegate = self
+        return interstitial!
+        //將事前建立的code用createInterstitial包起來
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createInterstitial()
+        //關掉廣告的同時就讓 interstitial = createInterstitial()
     }
 
     @IBAction func soundAtn(){
@@ -107,7 +136,7 @@ class OriginalViewController: UIViewController{
     }
     
     override func didReceiveMemoryWarning(){
-        
+    
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -137,5 +166,15 @@ class OriginalViewController: UIViewController{
         
         view.addMotionEffect(group)
     }
+}
 
+extension OriginalViewController: GADInterstitialDelegate {
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("Interstitial loaded successfully")
+        ad.present(fromRootViewController: self)
+    }
+    
+    func interstitialDidFail(toPresentScreen ad: GADInterstitial) {
+        print("Fail to receive interstitial")
+    }
 }

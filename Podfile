@@ -7,7 +7,14 @@ target 'sideProject-ninjia' do
 
   # Pods for bao-2018-ninjiaFighting111
 
+# for crash
+
  pod 'Fabric'
  pod 'Crashlytics'
+
+# for admob
+
+pod 'Firebase/Core'
+pod 'Firebase/AdMob'
 
 end

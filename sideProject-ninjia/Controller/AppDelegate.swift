@@ -2,15 +2,24 @@
 import UIKit
 import Fabric
 import Crashlytics
+import GoogleMobileAds
+
+
+// admob: ca-app-pub-6580741437448841~3920041249
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate
-{
+class AppDelegate: UIResponder, UIApplicationDelegate{
+    
+    
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-6580741437448841~3920041249")
+
         
         Fabric.with([Crashlytics.self])
         return true
