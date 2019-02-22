@@ -104,6 +104,7 @@ class GameViewController: UIViewController{
     }
     
     @IBAction func backAtn (){
+        admob += 1
         dismiss(animated: true, completion: nil)
     }
 }

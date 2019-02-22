@@ -3,7 +3,7 @@
 import UIKit
 import GoogleMobileAds
 
-
+var admob = 0
 class OriginalViewController: UIViewController{
     
     var soundSetting = UserDefaults().string(forKey: "Sound") ?? "On"
@@ -61,15 +61,18 @@ class OriginalViewController: UIViewController{
         }
         
         interstitial = createInterstitial()
-
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if interstitial!.isReady{
-            interstitial!.present(fromRootViewController: self)
+        if admob != 0{
+            if interstitial!.isReady{
+                interstitial!.present(fromRootViewController: self)
+            }else{
+                print("Ad wasn't ready")
+            }
         }else{
-            print("Ad wasn't ready")
+            print("nothing")
         }
     }
     
@@ -142,7 +145,6 @@ class OriginalViewController: UIViewController{
     }
 
     func ringing(){
-        
         soundManger.playSEwith(sound: .SE3_back)
     }
     
