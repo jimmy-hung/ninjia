@@ -27,7 +27,6 @@ class OriginalViewController: UIViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
-
         myBG.useMotionEffect(magnitude: 5)
         startBtn.useMotionEffect(magnitude: -30)
         
@@ -65,6 +64,11 @@ class OriginalViewController: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        UIView.animate(withDuration: 0.8) {
+            self.view.alpha = 1
+        }
+        
         if admob != 0{
             if interstitial!.isReady{
                 interstitial!.present(fromRootViewController: self)
@@ -74,6 +78,10 @@ class OriginalViewController: UIViewController{
         }else{
             print("nothing")
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        view.alpha = 0
     }
     
     func createInterstitial() -> GADInterstitial{

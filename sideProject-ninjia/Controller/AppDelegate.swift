@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         // Override point for customization after application launch.
         
         GADMobileAds.configure(withApplicationID: "ca-app-pub-6580741437448841~3920041249")
-
-        
+                
         Fabric.with([Crashlytics.self])
         return true
     }

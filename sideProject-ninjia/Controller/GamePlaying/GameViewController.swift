@@ -7,18 +7,17 @@ import GameplayKit
 class GameViewController: UIViewController{
     
     @IBOutlet var final: UIView!
-    @IBOutlet weak var resultBoom: UIButton!
-    @IBOutlet weak var resultScore: UILabel!
+    @IBOutlet weak var resultImgBoom: UIButton!
+    @IBOutlet weak var resultGetScore: UILabel!
     @IBOutlet weak var resultBack: UIButton!
     
     var score = 0
     
-    var isGame = true{
+    var checkGame = true{
         didSet{
-            if isGame == false
-            {
+            if checkGame == false{
                 final.isHidden = false
-                resultBoom.flash(sender: resultBoom, repeatIs: 2)
+                resultImgBoom.flash(sender: resultImgBoom, repeatIs: 2)
             }
         }
     }
@@ -66,12 +65,12 @@ class GameViewController: UIViewController{
     }
     
     @objc func gamePlaying(noti:Notification){
-        isGame = noti.userInfo!["GAME"] as! Bool
+        checkGame = noti.userInfo!["GAME"] as! Bool
     }
     
     @objc func gotScore(noti:Notification){
         score = noti.userInfo!["SCORE"] as! Int
-        resultScore.text = "\(score)"
+        resultGetScore.text = "\(score)"
     }
 
     override var shouldAutorotate: Bool {
@@ -96,11 +95,11 @@ class GameViewController: UIViewController{
     }
     
     @IBAction func boomAtn (){
-        resultBoom.pulsate(sender: resultBoom, repeatIs: 4)
+        resultImgBoom.pulsate(sender: resultImgBoom, repeatIs: 4)
     }
     
     func changeImg(){
-        resultBoom.setBackgroundImage(#imageLiteral(resourceName: "mark"), for: .normal)
+        resultImgBoom.setBackgroundImage(#imageLiteral(resourceName: "mark"), for: .normal)
     }
     
     @IBAction func backAtn (){

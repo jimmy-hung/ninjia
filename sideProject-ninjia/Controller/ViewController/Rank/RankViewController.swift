@@ -34,7 +34,12 @@ class RankViewController: UIViewController{
     }
     
     @IBAction func backAtn(){
-        dismiss(animated: true, completion: nil)
+        UIView.animate(withDuration: 0.8) {
+            self.view.alpha = 0
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.8) {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 

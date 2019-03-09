@@ -19,61 +19,51 @@ class FunctionViewController: UIViewController
     
     let soundManger = SoundManager.shared
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad(){
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool)
-    {
-        if bgmchoose == "One"
-        {
+    override func viewWillAppear(_ animated: Bool){
+        if bgmchoose == "One"{
             bgmchooseOne.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
             bgmchooseTwo.setImage(nil, for: .normal)
             bgmchooseThree.setImage(nil, for: .normal)
         }
-        else if bgmchoose == "Two"
-        {
+        else if bgmchoose == "Two"{
             bgmchooseOne.setImage(nil, for: .normal)
             bgmchooseTwo.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
             bgmchooseThree.setImage(nil, for: .normal)
         }
-        else if bgmchoose == "Three"
-        {
+        else if bgmchoose == "Three"{
             bgmchooseOne.setImage(nil, for: .normal)
             bgmchooseTwo.setImage(nil, for: .normal)
             bgmchooseThree.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
         }
         
         // turn on or off sound
-        if soundSetting == "On"
-        {
+        if soundSetting == "On"{
             soundBtnOn.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
             soundBtnOff.setImage(nil, for: .normal)
         }
-        else if soundSetting == "Off"
-        {
+        else if soundSetting == "Off"{
             soundBtnOn.setImage(nil, for: .normal)
             soundBtnOff.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
         }
         
         // turn on or off heard
-        if heardSetting == "On"
-        {
+        if heardSetting == "On"{
             heardBtnOn.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
             heardBtnOff.setImage(nil, for: .normal)
         }
-        else if heardSetting == "Off"
-        {
+        else if heardSetting == "Off"{
             heardBtnOn.setImage(nil, for: .normal)
             heardBtnOff.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
         }
     }
     
-    @IBAction func BgmChoice(_ sender: UIButton)
-    {
+    @IBAction func BgmChoice(_ sender: UIButton){
         ringing()
         
         switch sender.tag {
@@ -118,74 +108,68 @@ class FunctionViewController: UIViewController
     }
     
 
-    override func didReceiveMemoryWarning()
-    {
+    override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func BgmChoose()
-    {
+    func BgmChoose(){
         // to choose backgroud music
-        if bgmchoose == "One"
-        {
+        if bgmchoose == "One"{
             bgmchooseOne.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
             bgmchooseTwo.setImage(nil, for: .normal)
             bgmchooseThree.setImage(nil, for: .normal)
         }
-        else if bgmchoose == "Two"
-        {
+        else if bgmchoose == "Two"{
             bgmchooseOne.setImage(nil, for: .normal)
             bgmchooseTwo.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
             bgmchooseThree.setImage(nil, for: .normal)
         }
-        else if bgmchoose == "Three"
-        {
+        else if bgmchoose == "Three"{
             bgmchooseOne.setImage(nil, for: .normal)
             bgmchooseTwo.setImage(nil, for: .normal)
             bgmchooseThree.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
         }
     }
     
-    func soundCheck()
-    {
+    func soundCheck(){
         // turn on or off sound
-        if soundSetting == "On"
-        {
+        if soundSetting == "On"{
             soundBtnOn.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
             soundBtnOff.setImage(nil, for: .normal)
         }
-        else if soundSetting == "Off"
-        {
+        else if soundSetting == "Off"{
             soundBtnOn.setImage(nil, for: .normal)
             soundBtnOff.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
         }
     }
     
-    func heardCheck()
-    {
+    func heardCheck(){
         // turn on or off heard
-        if heardSetting == "On"
-        {
+        if heardSetting == "On"{
             heardBtnOn.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
             heardBtnOff.setImage(nil, for: .normal)
         }
-        else if heardSetting == "Off"
-        {
+        else if heardSetting == "Off"{
             heardBtnOn.setImage(nil, for: .normal)
             heardBtnOff.setImage(#imageLiteral(resourceName: "mark"), for: .normal)
         }
     }
     
-    func ringing()
-    {
+    func ringing(){
         soundManger.playSEwith(sound: .SE2_wood)
     }
     
-    @IBAction func backAtn()
-    {
+    @IBAction func backAtn(){
         soundManger.playSEwith(sound: .SE3_back)
-        dismiss(animated: true, completion: nil)
+        
+        UIView.animate(withDuration: 0.8) {
+            self.view.frame = CGRect(x: self.view.frame.size.width / 2 , y: self.view.frame.size.height / 2, width: 10, height: 10)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.8) {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
 }

@@ -8,6 +8,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var newPlayer     = SKSpriteNode(imageNamed: "")
     var newSecPlayer  = SKSpriteNode(imageNamed: "sun")
     var myBG          = SKSpriteNode(imageNamed: "bg")
+    var secBG         = SKSpriteNode(imageNamed: "bg2")
     var scoreField    = SKSpriteNode(imageNamed: "icon_9")
     var starField     = SKSpriteNode(imageNamed: "icon_10")
     var gameOverG     = SKShapeNode()
@@ -21,9 +22,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     var scoreLb = SKLabelNode()
+    
+    // 純判斷用
+    var fakeScore = 5
+    
     var score = 0{
         didSet{
-            
+            fakeScore = score
             if isGame == true{
                 scoreLb.text = "\(score)"
                 NotificationCenter.default.post(name: Notification.Name("refreshScore"), object: nil, userInfo: ["SCORE":score])
@@ -49,10 +54,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var fireAttack = "sun"
     var grids = false
     var isGame = true
+    var goOn = true // 是否繼續產生boss 因為 boss 一次只有一隻
     var bossCount = 1
     
     let motionManger = CMMotionManager()
     var xAcceleration:CGFloat = 0
+    
+//    var bgTimer : Timer?
     
     override func didMove(to view: SKView) { 
         
@@ -76,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         setGame()
         
-        anemeyProductTime = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(addBatess), userInfo: nil, repeats: true)
+        anemeyProductTime = Timer.scheduledTimer(timeInterval: 0.85, target: self, selector: #selector(addBatess), userInfo: nil, repeats: true)
         
         motionManger.accelerometerUpdateInterval = 0.2
         motionManger.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
@@ -97,6 +105,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         myBG.position = CGPoint(x: 0, y: 0 )
         myBG.zPosition = -1
         self.addChild(myBG)
+        
+//        secBG.size = myBG.frame.size
+//        secBG.position = CGPoint(x: secBG.size.width, y: 0)
+//        self.addChild(secBG)
+        
+//        startBgMotion()
         
         let playerScale = CGFloat(newPlayer.frame.width / newPlayer.frame.height)
         
@@ -187,38 +201,87 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
        @objc func addBatess(){
         
-        batessAry = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: batessAry) as! [String]
+        var countBat = 0
         
-        let bat = SKSpriteNode(imageNamed: batessAry[0])
-        let batScale = CGFloat(bat.frame.width / (bat.frame.height * 2)) // 新增 *2
+        if (fakeScore % 100) == 0 {
+            if goOn{
+                addBoss()
+                countBat = -1000 // 讓bates無限制
+            }
+        }else{
+            // 維持第一次100分
+            if countBat <= 20 {
+                countBat += 1
+                batessAry = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: batessAry) as! [String]
+                
+                let batEnemy = SKSpriteNode(imageNamed: batessAry[0])
+                let batScale = CGFloat(batEnemy.frame.width / (batEnemy.frame.height * 2)) // 新增 *2
+                
+                
+                let a = Int(self.frame.size.width)/2
+                let b = Int(batEnemy.size.width)/5
+                let randomEnemeyPosition = GKRandomDistribution(lowestValue: -a + b, highestValue: a - b)
+                let position = CGFloat(randomEnemeyPosition.nextInt())
+                
+                batEnemy.size.width = self.frame.size.width / 5  // 4
+                batEnemy.size.height = batEnemy.size.width * batScale
+                batEnemy.position = CGPoint(x: position, y: self.frame.size.height/2 + batEnemy.size.height)
+                batEnemy.zPosition = 3
+                
+                batEnemy.physicsBody = SKPhysicsBody(rectangleOf: batEnemy.size)
+                batEnemy.physicsBody?.isDynamic = true
+                
+                batEnemy.physicsBody?.categoryBitMask = batessCategory
+                batEnemy.physicsBody?.contactTestBitMask = noneCategory | endGCategory
+                batEnemy.physicsBody?.collisionBitMask = 0
+                
+                batEnemy.name = batessAry[0]
+                self.addChild(batEnemy)
+                
+                skActionToGo(theNode: batEnemy, xposition: position, animateTime: 6, ypositiion: 4.5)
+            }
+        }
+    }
+    
+    @objc func addBoss(){
+        
+        goOn = false // 停止產生 boss
+        var bossEnemy = SKSpriteNode(imageNamed: "")
+        if score == 100{
+            bossEnemy = SKSpriteNode(imageNamed: "bat3")
+            bossEnemy.name = "bat3"
+        }else if score == 300{
+            bossEnemy = SKSpriteNode(imageNamed: "bat4")
+            bossEnemy.name = "bat4"
+        }else if score >= 500{
+            bossEnemy = SKSpriteNode(imageNamed: "boss")
+            bossEnemy.name = "boss"
+        }
+        
+        
+        let bossScale = CGFloat(bossEnemy.frame.width / (bossEnemy.frame.height * 2)) // 新增 *2
         
         
         let a = Int(self.frame.size.width)/2
-        let b = Int(bat.size.width)/5
+        let b = Int(bossEnemy.size.width)/5
         let randomEnemeyPosition = GKRandomDistribution(lowestValue: -a + b, highestValue: a - b)
         let position = CGFloat(randomEnemeyPosition.nextInt())
         
-        bat.size.width = self.frame.size.width / 5  // 4
-        bat.size.height = bat.size.width * batScale
-        bat.position = CGPoint(x: position, y: self.frame.size.height/2 + bat.size.height)
-        bat.zPosition = 3
+        bossEnemy.size.width = self.frame.size.width / 2.5  // 4
+        bossEnemy.size.height = bossEnemy.size.width * bossScale * 2 / 3
+        bossEnemy.position = CGPoint(x: position, y: self.frame.size.height/2 + bossEnemy.size.height)
+        bossEnemy.zPosition = 3
         
-        bat.physicsBody = SKPhysicsBody(rectangleOf: bat.size)
-        bat.physicsBody?.isDynamic = true
+        bossEnemy.physicsBody = SKPhysicsBody(rectangleOf: bossEnemy.size)
+        bossEnemy.physicsBody?.isDynamic = true
         
-        bat.physicsBody?.categoryBitMask = batessCategory
-        bat.physicsBody?.contactTestBitMask = noneCategory | endGCategory
-        bat.physicsBody?.collisionBitMask = 0
-   
-//        if let index = bat.userData?.value(forKey: setSPriteNodeValue) as? Int {
-//            print(index)
-//        }
-
-        bat.name = batessAry[0]
+        bossEnemy.physicsBody?.categoryBitMask = batBossCategory
+        bossEnemy.physicsBody?.contactTestBitMask = noneCategory | endGCategory
+        bossEnemy.physicsBody?.collisionBitMask = 0
         
-        self.addChild(bat)
+        self.addChild(bossEnemy)
         
-        skActionToGo(theNode: bat, xposition: position, animateTime: 6, ypositiion: 4.5)
+        skActionToGo(theNode: bossEnemy, xposition: position, animateTime: 20, ypositiion: 4.5)
     }
     
     func addMyStart(enemeyPosition: CGPoint){
@@ -439,39 +502,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
 
         if firstBody.categoryBitMask == noneCategory && secondBody.categoryBitMask == batessCategory || secondBody.categoryBitMask == batBossCategory{
-            
             let a = firstBody.node as! SKSpriteNode
-            
             let b = secondBody.node as! SKSpriteNode
-            
             let myStartWish = [0,1,0,1,0]
-
+            
             if (secondBody.node?.alpha)! <= CGFloat(0.8){
-                
                 fireDidCollideWithEnemeyBoom(fireDid: a, enemey: b)
-
                 let wish = myStartWish[5.arc4random]
-
                 if wish == 1 {
                     addMyStart(enemeyPosition: (secondBody.node?.position)!)
                 }
-
                 if secondBody.node?.name == "bat1" || secondBody.node?.name == "bat2"{
-                    
                     if score >= 0 && score < 100{
                         score += 5
+                        if (secondBody.node?.alpha)! <= CGFloat(0) { secondBody.node?.removeFromParent()}
                     }else{
                          score += 5 * Int(getRound)
+                         if (secondBody.node?.alpha)! <= CGFloat(0) { secondBody.node?.removeFromParent()}
                     }
                 }else{
-                    score += 100
+                    score += 50
                     anemeyProductTime.fireDate = NSDate.init() as Date
+                    if (secondBody.node?.alpha)! <= CGFloat(0) {
+                        secondBody.node?.removeFromParent()
+                        goOn = true
+                    }
                 }
-            }
-            else if secondBody.node?.name == "bat1" || secondBody.node?.name == "bat2"{
-                
+            }else if secondBody.node?.name == "bat1" || secondBody.node?.name == "bat2"{
                 fireDidCollideWithEnemey(fireDid: a, enemey: b)
                 secondBody.node?.alpha -= base * 0.5/1000
+            }else if secondBody.node?.name == "bat3" || secondBody.node?.name == "bat4"{
+                fireDidCollideWithEnemey(fireDid: a, enemey: b)
+                secondBody.node?.alpha -= base * 0.5/1500
+            }else if secondBody.node?.name == "boss"{
+                fireDidCollideWithEnemey(fireDid: a, enemey: b)
+                secondBody.node?.alpha -= base * 0.5/2000
             }
         }
     }
@@ -533,5 +598,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             userdefault.set(socreLry, forKey: "scoreList")
         }
     }
+    
+    //MARK: Timer of BG
+//    func startBgMotion() {
+//        bgTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(checkBg), userInfo: nil, repeats: true)
+//    }
+//
+//    @objc func checkBg() {
+//        //ㄕwhen game is over
+//        if !isGame{
+//            stopListenBgWork()
+//        }else{
+//            if secBG.position.x <= 0{
+//                myBG.position.x -= 0.1
+//                secBG.position.x -= 0.1
+//                if myBG.position.x <= 0{ secBG.position.x = self.frame.size.width }
+//            }else if myBG.position.x <= 0{
+//                myBG.position.x -= 0.1
+//                secBG.position.x -= 0.1
+//                if secBG.position.x <= 0{ myBG.position.x = self.frame.size.width }
+//            }
+//        }
+//    }
+//
+//    func stopListenBgWork() {
+//        bgTimer?.invalidate()
+//        bgTimer = nil
+//    }
 }
 
