@@ -137,8 +137,8 @@
 				BF33DAB8221D3E6600FD32BE /* Model */,
 				BF33DAB9221D3EBC00FD32BE /* View */,
 				BF33DABA221D3EC700FD32BE /* Controller */,
-				25F936F4216DA93B0070C230 /* Info.plist */,
 				25F936EF216DA93B0070C230 /* Assets.xcassets */,
+				25F936F4216DA93B0070C230 /* Info.plist */,
 				2507851D2171C7E10001D326 /* InfoPlist.strings */,
 			);
 			path = "sideProject-ninjia";
